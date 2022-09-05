@@ -20,3 +20,17 @@
 //       disable: process.env.NODE_ENV != 'production'
 //    }
 // });
+
+module.exports = () => {
+  const rewrites = () => {
+    return [
+      {
+        source: '/graphql',
+        destination: 'http://notes-api:3001/graphql'
+      }
+    ]
+  }
+  return {
+    rewrites
+  }
+}
