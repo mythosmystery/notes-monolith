@@ -15,8 +15,9 @@ services:
     networks:
       - notes-network
 
-  server:
+  notes-api:
     restart: always
+    container_name: notes-api
     build:
       context: ./server
     ports:
@@ -29,14 +30,15 @@ services:
       - DATABASE_URL=postgresql://user:password@db:5432/db
       - COOKIE_NAME=notes
 
-  client:
+  notes-client:
     restart: always
+    container_name: notes-client
     build:
       context: ./client
     ports:
       - 8004:3000
     depends_on:
-      - server
+      - notes-api
     networks:
       - notes-network
 

@@ -1,5 +1,5 @@
 {
-  "proxy": "http://server:3001",
+  "proxy": "http://notes-api:3001",
   "private": true,
   "scripts": {
     "dev": "next dev",
