@@ -1,0 +1,7 @@
+mutation writeNote($title: String!, $body: String!) {
+   writeNote(title: $title, body: $body) {
+      id
+      title
+      body
+   }
+}

@@ -1,0 +1,8 @@
+query noteById($id: String!) {
+   getNote(id: $id) {
+      id
+      body
+      title
+      date
+   }
+}

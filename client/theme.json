@@ -1,0 +1,17 @@
+{
+    "background": "#292D3E",
+    "foreground": "#A6ACCD",
+    "selection": "#717CB470",  
+    "buttons": "#303348",
+    "background-secondary": "#34324a",
+    "disabled": "#515772",
+    "active": "#414B63",
+    "border": "#2b2a3e",
+    "highlight": "#444267",
+    "tree": "#676E95",
+    "accent": "#ab47bc",
+    "purple": "#c792ea",
+    "teal": "#89ddff",
+    "orange": "#f78c6c",
+    "turq": "#80cbc4"
+}
