@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - notes-network
+
+  server:
+    restart: always
+    build:
+      context: ./server
+    ports:
+      - 3001:3001
+    depends_on:
+      - db
+    networks:
+      - notes-network
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/db
+      - COOKIE_NAME=notes
+
+  client:
+    restart: always
+    build:
+      context: ./client
+    ports:
+      - 8004:3000
+    depends_on:
+      - server
+    networks:
+      - notes-network
+
+volumes:
+  db:
+networks:
+  notes-network:
+    driver: bridge

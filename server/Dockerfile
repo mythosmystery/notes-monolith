@@ -2,9 +2,13 @@ FROM node:18.0-bullseye-slim
 
 WORKDIR /usr/src/server
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
+
+COPY . .
+
+RUN npm run build
 
 ENV NODE_ENV=production
 
